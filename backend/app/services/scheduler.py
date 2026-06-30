@@ -18,6 +18,8 @@ from app.services.sync.saemaeul import SaemaeulTransactionSyncer, SaemaeulAssetS
 from app.services.sync.woori_card import WooriCardSyncer
 from app.services.sync.hana_card import HanaCardSyncer
 from app.services.sync.shinhan_card import ShinhanCardSyncer
+from app.services.sync.lotte_card import LotteCardSyncer
+from app.services.sync.samsung_card import SamsungCardSyncer
 from app.services.sync.samsung_sec import SamsungSecAssetSyncer
 from app.services.sync.mirae_sec import MiraeSecAssetSyncer
 from app.services.sync.meritz_sec import MeritzSecAssetSyncer
@@ -40,6 +42,8 @@ def _build_transaction_syncers(settings) -> list:
         WooriCardSyncer(u1, settings.user1_woori_card_app_key, settings.user1_woori_card_app_secret, settings.user1_woori_card_no),
         HanaCardSyncer(u1, settings.user1_hana_card_app_key, settings.user1_hana_card_app_secret, settings.user1_hana_card_no),
         ShinhanCardSyncer(u1, settings.user1_shinhan_card_app_key, settings.user1_shinhan_card_app_secret, settings.user1_shinhan_card_no),
+        LotteCardSyncer(u1, settings.user1_lotte_card_app_key, settings.user1_lotte_card_app_secret, settings.user1_lotte_card_no),
+        SamsungCardSyncer(u1, settings.user1_samsung_card_app_key, settings.user1_samsung_card_app_secret, settings.user1_samsung_card_no),
         WooriBankTransactionSyncer(u2, settings.user2_woori_bank_app_key, settings.user2_woori_bank_app_secret, settings.user2_woori_bank_account),
         KakaoBankTransactionSyncer(u2, settings.user2_kakao_bank_app_key, settings.user2_kakao_bank_app_secret, settings.user2_kakao_bank_account),
         HanaBankTransactionSyncer(u2, settings.user2_hana_bank_app_key, settings.user2_hana_bank_app_secret, settings.user2_hana_bank_account),
@@ -47,6 +51,8 @@ def _build_transaction_syncers(settings) -> list:
         WooriCardSyncer(u2, settings.user2_woori_card_app_key, settings.user2_woori_card_app_secret, settings.user2_woori_card_no),
         HanaCardSyncer(u2, settings.user2_hana_card_app_key, settings.user2_hana_card_app_secret, settings.user2_hana_card_no),
         ShinhanCardSyncer(u2, settings.user2_shinhan_card_app_key, settings.user2_shinhan_card_app_secret, settings.user2_shinhan_card_no),
+        LotteCardSyncer(u2, settings.user2_lotte_card_app_key, settings.user2_lotte_card_app_secret, settings.user2_lotte_card_no),
+        SamsungCardSyncer(u2, settings.user2_samsung_card_app_key, settings.user2_samsung_card_app_secret, settings.user2_samsung_card_no),
     ]
 
 

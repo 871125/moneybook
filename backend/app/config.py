@@ -34,6 +34,12 @@ class Settings(BaseSettings):
     user1_shinhan_card_app_key: str = ""
     user1_shinhan_card_app_secret: str = ""
     user1_shinhan_card_no: str = ""
+    user1_lotte_card_app_key: str = ""
+    user1_lotte_card_app_secret: str = ""
+    user1_lotte_card_no: str = ""
+    user1_samsung_card_app_key: str = ""
+    user1_samsung_card_app_secret: str = ""
+    user1_samsung_card_no: str = ""
 
     # User1 증권
     user1_samsung_sec_app_key: str = ""
@@ -80,6 +86,12 @@ class Settings(BaseSettings):
     user2_shinhan_card_app_key: str = ""
     user2_shinhan_card_app_secret: str = ""
     user2_shinhan_card_no: str = ""
+    user2_lotte_card_app_key: str = ""
+    user2_lotte_card_app_secret: str = ""
+    user2_lotte_card_no: str = ""
+    user2_samsung_card_app_key: str = ""
+    user2_samsung_card_app_secret: str = ""
+    user2_samsung_card_no: str = ""
 
     # User2 증권
     user2_samsung_sec_app_key: str = ""
