@@ -59,6 +59,8 @@ class Settings(BaseSettings):
     # User1 거래소
     user1_binance_api_key: str = ""
     user1_binance_secret: str = ""
+    user1_bingx_api_key: str = ""
+    user1_bingx_secret: str = ""
     user1_upbit_access_key: str = ""
     user1_upbit_secret_key: str = ""
 

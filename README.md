@@ -275,8 +275,8 @@ USER1_BINANCE_SECRET=발급받은_Secret_Key
 > ⚠️ Spot + Perpetual Futures(USDT-M) 잔고를 수집합니다.
 
 ```dotenv
-USER2_BINGX_API_KEY=발급받은_API_Key
-USER2_BINGX_SECRET=발급받은_Secret_Key
+USER1_BINGX_API_KEY=발급받은_API_Key
+USER1_BINGX_SECRET=발급받은_Secret_Key
 ```
 
 #### Upbit
