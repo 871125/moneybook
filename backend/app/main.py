@@ -6,12 +6,28 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers import transactions, assets
 from app.services.scheduler import start_scheduler, stop_scheduler, _daily_transaction_sync, _monthly_asset_snapshot
+from app.config import get_settings
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    s = get_settings()
+    configured = [
+        name for name, val in {
+            "User1 BingX": s.user1_bingx_api_key,
+            "User1 Binance": s.user1_binance_api_key,
+            "User1 Upbit": s.user1_upbit_access_key,
+            "User2 BingX": s.user2_bingx_api_key,
+            "User2 Binance": s.user2_binance_api_key,
+            "User2 Upbit": s.user2_upbit_access_key,
+            "User3 BingX": s.user3_bingx_api_key,
+            "User3 Binance": s.user3_binance_api_key,
+            "User3 Upbit": s.user3_upbit_access_key,
+        }.items() if val
+    ]
+    logging.getLogger(__name__).info("로드된 거래소 API: %s", configured or ["없음"])
     start_scheduler()
     yield
     stop_scheduler()
