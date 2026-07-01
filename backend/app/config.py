@@ -111,6 +111,8 @@ class Settings(BaseSettings):
     user2_nh_sec_account: str = ""
 
     # User2 거래소
+    user2_binance_api_key: str = ""
+    user2_binance_secret: str = ""
     user2_bingx_api_key: str = ""
     user2_bingx_secret: str = ""
     user2_upbit_access_key: str = ""

@@ -277,6 +277,7 @@ USER1_BINANCE_SECRET=발급받은_Secret_Key
 ```dotenv
 USER1_BINGX_API_KEY=발급받은_API_Key
 USER1_BINGX_SECRET=발급받은_Secret_Key
+# (USER2, USER3도 동일한 형식으로 입력)
 ```
 
 #### Upbit

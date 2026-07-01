@@ -87,6 +87,7 @@ def _build_asset_syncers(settings) -> list:
         MiraeSecAssetSyncer(u2, settings.user2_mirae_sec_app_key, settings.user2_mirae_sec_app_secret, settings.user2_mirae_sec_account),
         MeritzSecAssetSyncer(u2, settings.user2_meritz_sec_app_key, settings.user2_meritz_sec_app_secret, settings.user2_meritz_sec_account),
         NHSecAssetSyncer(u2, settings.user2_nh_sec_app_key, settings.user2_nh_sec_app_secret, settings.user2_nh_sec_account),
+        BinanceAssetSyncer(u2, settings.user2_binance_api_key, settings.user2_binance_secret),
         BingXAssetSyncer(u2, settings.user2_bingx_api_key, settings.user2_bingx_secret),
         UpbitAssetSyncer(u2, settings.user2_upbit_access_key, settings.user2_upbit_secret_key),
         WooriBankAssetSyncer(u3, settings.user3_woori_bank_app_key, settings.user3_woori_bank_app_secret, settings.user3_woori_bank_account),
