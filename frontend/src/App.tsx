@@ -16,6 +16,7 @@ const { Title } = Typography
 
 const USER1_NAME = import.meta.env.VITE_USER1_NAME ?? 'User1'
 const USER2_NAME = import.meta.env.VITE_USER2_NAME ?? 'User2'
+const USER3_NAME = import.meta.env.VITE_USER3_NAME ?? 'User3'
 
 type PageKey = 'transactions' | 'assets'
 
@@ -49,6 +50,7 @@ export default function App() {
               onViewChange={setViewMode}
               user1Name={USER1_NAME}
               user2Name={USER2_NAME}
+              user3Name={USER3_NAME}
             />
           ) : (
             <Assets
@@ -56,6 +58,7 @@ export default function App() {
               onViewChange={setViewMode}
               user1Name={USER1_NAME}
               user2Name={USER2_NAME}
+              user3Name={USER3_NAME}
             />
           )}
         </Content>

@@ -14,11 +14,12 @@ interface Props {
   onViewChange: (v: ViewMode) => void
   user1Name: string
   user2Name: string
+  user3Name: string
 }
 
 const YEARS = Array.from({ length: 3 }, (_, i) => dayjs().year() - i)
 
-export default function Assets({ viewMode, onViewChange, user1Name, user2Name }: Props) {
+export default function Assets({ viewMode, onViewChange, user1Name, user2Name, user3Name }: Props) {
   const [loading, setLoading] = useState(false)
   const [year, setYear] = useState(dayjs().year())
   const [month, setMonth] = useState(dayjs().month() + 1)
@@ -26,7 +27,7 @@ export default function Assets({ viewMode, onViewChange, user1Name, user2Name }:
   const [totalKrw, setTotalKrw] = useState(0)
   const [trend, setTrend] = useState<MonthlyTrend[]>([])
 
-  const userParam = viewMode === 'user1' ? user1Name : viewMode === 'user2' ? user2Name : undefined
+  const userParam = viewMode === 'user1' ? user1Name : viewMode === 'user2' ? user2Name : viewMode === 'user3' ? user3Name : undefined
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -54,7 +55,7 @@ export default function Assets({ viewMode, onViewChange, user1Name, user2Name }:
       {/* 뷰 전환 + 필터 */}
       <Row gutter={[16, 8]} align="middle">
         <Col>
-          <ViewSelector value={viewMode} onChange={onViewChange} user1Name={user1Name} user2Name={user2Name} />
+          <ViewSelector value={viewMode} onChange={onViewChange} user1Name={user1Name} user2Name={user2Name} user3Name={user3Name} />
         </Col>
         <Col>
           <Select

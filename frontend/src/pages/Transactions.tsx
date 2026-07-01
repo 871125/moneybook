@@ -16,9 +16,10 @@ interface Props {
   onViewChange: (v: ViewMode) => void
   user1Name: string
   user2Name: string
+  user3Name: string
 }
 
-export default function Transactions({ viewMode, onViewChange, user1Name, user2Name }: Props) {
+export default function Transactions({ viewMode, onViewChange, user1Name, user2Name, user3Name }: Props) {
   const [loading, setLoading] = useState(false)
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [categories, setCategories] = useState<CategorySummary[]>([])
@@ -28,7 +29,7 @@ export default function Transactions({ viewMode, onViewChange, user1Name, user2N
   ])
   const [institutionFilter, setInstitutionFilter] = useState<string | undefined>()
 
-  const userParam = viewMode === 'user1' ? user1Name : viewMode === 'user2' ? user2Name : undefined
+  const userParam = viewMode === 'user1' ? user1Name : viewMode === 'user2' ? user2Name : viewMode === 'user3' ? user3Name : undefined
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -65,7 +66,7 @@ export default function Transactions({ viewMode, onViewChange, user1Name, user2N
       {/* 뷰 전환 + 필터 */}
       <Row gutter={[16, 8]} align="middle">
         <Col>
-          <ViewSelector value={viewMode} onChange={onViewChange} user1Name={user1Name} user2Name={user2Name} />
+          <ViewSelector value={viewMode} onChange={onViewChange} user1Name={user1Name} user2Name={user2Name} user3Name={user3Name} />
         </Col>
         <Col>
           <RangePicker

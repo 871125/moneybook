@@ -1,4 +1,4 @@
-export type ViewMode = 'user1' | 'user2' | 'combined'
+export type ViewMode = 'user1' | 'user2' | 'user3' | 'combined'
 
 export interface Transaction {
   date: string
