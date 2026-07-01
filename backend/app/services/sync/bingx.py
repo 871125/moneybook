@@ -93,7 +93,6 @@ class BingXAssetSyncer(BaseAssetSyncer):
     def _signed_params(self, params: dict | None = None) -> dict:
         p = params or {}
         p["timestamp"] = int(time.time() * 1000)
-        p["recvWindow"] = 5000
         query = urlencode(sorted(p.items()))
         p["signature"] = _sign(self.secret, query)
         return p
@@ -109,6 +108,9 @@ class BingXAssetSyncer(BaseAssetSyncer):
         )
         resp.raise_for_status()
         body = resp.json()
+        if body.get("code", 0) != 0:
+            logger.warning("BingX Spot 오류 code=%s msg=%s", body.get("code"), body.get("msg"))
+            return []
 
         result = []
         for b in body.get("data", {}).get("balances", []):
@@ -129,10 +131,14 @@ class BingXAssetSyncer(BaseAssetSyncer):
             )
             resp.raise_for_status()
             body = resp.json()
+            if body.get("code", 0) != 0:
+                return []
 
+            raw = body.get("data", {}).get("balance", {})
+            # API가 단일 dict 또는 list 형태로 모두 반환할 수 있음
+            items = raw if isinstance(raw, list) else ([raw] if raw else [])
             result = []
-            for b in body.get("data", {}).get("balance", []):
-                # balance: 지갑잔고, unrealizedProfit: 미실현손익 포함한 총 가치
+            for b in items:
                 equity = float(b.get("equity", b.get("balance", 0)))
                 if equity > 0:
                     asset = b.get("asset", "USDT")
