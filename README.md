@@ -88,6 +88,7 @@ cp backend/.env.example backend/.env
 # ── 사용자 이름 ──────────────────────────────────────────
 USER1_NAME=홍길동
 USER2_NAME=홍길순
+USER3_NAME=홍길삼
 
 # ── 서버 설정 ────────────────────────────────────────────
 DATA_DIR=./app/data

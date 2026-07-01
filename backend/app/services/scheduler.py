@@ -33,7 +33,7 @@ scheduler = AsyncIOScheduler(timezone="Asia/Seoul")
 
 
 def _build_transaction_syncers(settings) -> list:
-    u1, u2 = settings.user1_name, settings.user2_name
+    u1, u2, u3 = settings.user1_name, settings.user2_name, settings.user3_name
     return [
         WooriBankTransactionSyncer(u1, settings.user1_woori_bank_app_key, settings.user1_woori_bank_app_secret, settings.user1_woori_bank_account),
         KakaoBankTransactionSyncer(u1, settings.user1_kakao_bank_app_key, settings.user1_kakao_bank_app_secret, settings.user1_kakao_bank_account),
@@ -53,11 +53,20 @@ def _build_transaction_syncers(settings) -> list:
         ShinhanCardSyncer(u2, settings.user2_shinhan_card_app_key, settings.user2_shinhan_card_app_secret, settings.user2_shinhan_card_no),
         LotteCardSyncer(u2, settings.user2_lotte_card_app_key, settings.user2_lotte_card_app_secret, settings.user2_lotte_card_no),
         SamsungCardSyncer(u2, settings.user2_samsung_card_app_key, settings.user2_samsung_card_app_secret, settings.user2_samsung_card_no),
+        WooriBankTransactionSyncer(u3, settings.user3_woori_bank_app_key, settings.user3_woori_bank_app_secret, settings.user3_woori_bank_account),
+        KakaoBankTransactionSyncer(u3, settings.user3_kakao_bank_app_key, settings.user3_kakao_bank_app_secret, settings.user3_kakao_bank_account),
+        HanaBankTransactionSyncer(u3, settings.user3_hana_bank_app_key, settings.user3_hana_bank_app_secret, settings.user3_hana_bank_account),
+        SaemaeulTransactionSyncer(u3, settings.user3_saemaeul_app_key, settings.user3_saemaeul_app_secret, settings.user3_saemaeul_branch, settings.user3_saemaeul_account),
+        WooriCardSyncer(u3, settings.user3_woori_card_app_key, settings.user3_woori_card_app_secret, settings.user3_woori_card_no),
+        HanaCardSyncer(u3, settings.user3_hana_card_app_key, settings.user3_hana_card_app_secret, settings.user3_hana_card_no),
+        ShinhanCardSyncer(u3, settings.user3_shinhan_card_app_key, settings.user3_shinhan_card_app_secret, settings.user3_shinhan_card_no),
+        LotteCardSyncer(u3, settings.user3_lotte_card_app_key, settings.user3_lotte_card_app_secret, settings.user3_lotte_card_no),
+        SamsungCardSyncer(u3, settings.user3_samsung_card_app_key, settings.user3_samsung_card_app_secret, settings.user3_samsung_card_no),
     ]
 
 
 def _build_asset_syncers(settings) -> list:
-    u1, u2 = settings.user1_name, settings.user2_name
+    u1, u2, u3 = settings.user1_name, settings.user2_name, settings.user3_name
     return [
         WooriBankAssetSyncer(u1, settings.user1_woori_bank_app_key, settings.user1_woori_bank_app_secret, settings.user1_woori_bank_account),
         KakaoBankAssetSyncer(u1, settings.user1_kakao_bank_app_key, settings.user1_kakao_bank_app_secret, settings.user1_kakao_bank_account),
@@ -79,6 +88,17 @@ def _build_asset_syncers(settings) -> list:
         NHSecAssetSyncer(u2, settings.user2_nh_sec_app_key, settings.user2_nh_sec_app_secret, settings.user2_nh_sec_account),
         BingXAssetSyncer(u2, settings.user2_bingx_api_key, settings.user2_bingx_secret),
         UpbitAssetSyncer(u2, settings.user2_upbit_access_key, settings.user2_upbit_secret_key),
+        WooriBankAssetSyncer(u3, settings.user3_woori_bank_app_key, settings.user3_woori_bank_app_secret, settings.user3_woori_bank_account),
+        KakaoBankAssetSyncer(u3, settings.user3_kakao_bank_app_key, settings.user3_kakao_bank_app_secret, settings.user3_kakao_bank_account),
+        HanaBankAssetSyncer(u3, settings.user3_hana_bank_app_key, settings.user3_hana_bank_app_secret, settings.user3_hana_bank_account),
+        SaemaeulAssetSyncer(u3, settings.user3_saemaeul_app_key, settings.user3_saemaeul_app_secret, settings.user3_saemaeul_branch, settings.user3_saemaeul_account),
+        SamsungSecAssetSyncer(u3, settings.user3_samsung_sec_app_key, settings.user3_samsung_sec_app_secret, settings.user3_samsung_sec_account),
+        MiraeSecAssetSyncer(u3, settings.user3_mirae_sec_app_key, settings.user3_mirae_sec_app_secret, settings.user3_mirae_sec_account),
+        MeritzSecAssetSyncer(u3, settings.user3_meritz_sec_app_key, settings.user3_meritz_sec_app_secret, settings.user3_meritz_sec_account),
+        NHSecAssetSyncer(u3, settings.user3_nh_sec_app_key, settings.user3_nh_sec_app_secret, settings.user3_nh_sec_account),
+        BinanceAssetSyncer(u3, settings.user3_binance_api_key, settings.user3_binance_secret),
+        BingXAssetSyncer(u3, settings.user3_bingx_api_key, settings.user3_bingx_secret),
+        UpbitAssetSyncer(u3, settings.user3_upbit_access_key, settings.user3_upbit_secret_key),
     ]
 
 
